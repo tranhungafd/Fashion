@@ -8,7 +8,12 @@ const authenticateToken = require('../middleware/auth');
 
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
+  console.log('Login attempt:', { email, password }); // Thêm log để debug
   try {
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Email and password are required' });
+    }
+
     const admin = await Admin.findOne({ email });
     if (!admin) return res.status(400).json({ error: 'Invalid email or password' });
 
@@ -18,6 +23,7 @@ router.post('/login', async (req, res) => {
     const token = jwt.sign({ id: admin._id, email: admin.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.json({ token });
   } catch (error) {
+    console.error('Login error:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
