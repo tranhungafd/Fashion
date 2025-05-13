@@ -21,6 +21,7 @@ router.post('/login', async (req, res) => {
     if (!isMatch) return res.status(400).json({ error: 'Invalid email or password' });
 
     const token = jwt.sign({ id: admin._id, email: admin.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    console.log('Generated token:', token); // Thêm log để kiểm tra token
     res.json({ token });
   } catch (error) {
     console.error('Login error:', error);

@@ -1,5 +1,5 @@
 document.getElementById('login-form').addEventListener('submit', async (e) => {
-  e.preventDefault(); // Ngăn hành vi mặc định của form (tránh gửi qua GET)
+  e.preventDefault();
 
   const email = e.target.email.value;
   const password = e.target.password.value;
@@ -14,12 +14,14 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
     });
 
     const data = await response.json();
-    console.log('Login response:', data); // Thêm log để debug
+    console.log('Login response:', data);
 
     if (response.ok) {
       localStorage.setItem('token', data.token);
+      console.log('Token stored:', data.token); // Thêm log để kiểm tra token
       alert('Đăng nhập thành công!');
-      window.location.href = '/admin'; // Redirect đến route bảo vệ
+      // Đảm bảo redirect với token
+      window.location.href = `/admin?token=${data.token}`;
     } else {
       alert(data.error || 'Đăng nhập thất bại.');
     }
