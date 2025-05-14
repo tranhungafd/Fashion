@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi Tiết Sản Phẩm</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold text-center mb-8">Chi Tiết Sản Phẩm</h1>
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Hình ảnh sản phẩm -->
+      <div class="w-full md:w-1/2">
+        <img id="product-image" src="" alt="Product Image" class="w-full h-96 object-cover rounded">
+        <div id="thumbnail-list" class="flex gap-2 mt-2 overflow-x-auto">
+          <!-- Thumbnails sẽ được thêm bằng JavaScript -->
+        </div>
+      </div>
+      <!-- Thông tin sản phẩm -->
+      <div class="w-full md:w-1/2">
+        <h2 id="product-name" class="text-2xl font-bold"></h2>
+        <p id="product-price" class="text-3xl text-red-600 font-semibold mt-2"></p>
+        <p id="product-description" class="text-gray-700 mt-4"></p>
+        <div id="product-rich-description" class="mt-4 prose"></div>
+        <div class="mt-4">
+          <label class="block text-gray-700">Kích thước</label>
+          <div id="product-sizes" class="flex gap-2">
+            <!-- Kích thước sẽ được thêm bằng JavaScript -->
+          </div>
+        </div>
+        <div class="mt-4">
+          <label class="block text-gray-700">Ngày bắt đầu thuê</label>
+          <input type="date" id="rent-start" class="w-full p-2 border rounded">
+        </div>
+        <div class="mt-4">
+          <label class="block text-gray-700">Ngày kết thúc thuê</label>
+          <input type="date" id="rent-end" class="w-full p-2 border rounded">
+        </div>
+        <div class="mt-4">
+          <button class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Thuê</button>
+          <button class="w-full bg-green-500 text-white p-2 rounded mt-2 hover:bg-green-600">Mua Hàng</button>
+        </div>
+        <p class="mt-4 text-gray-500">Hotline hỗ trợ: (+84)965848123 (Zalo)</p>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/js/detail.js"></script>
+</body>
+</html>

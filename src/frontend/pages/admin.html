@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin - Upload Sản Phẩm</title>
+  <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
@@ -15,7 +16,7 @@
         <input type="text" name="name" required class="w-full p-2 border rounded">
       </div>
       <div class="mb-4">
-        <label class="block text-gray-700">Mô tả</label>
+        <label class="block text-gray-700">Mô tả ngắn</label>
         <textarea name="description" required class="w-full p-2 border rounded"></textarea>
       </div>
       <div class="mb-4">
@@ -23,12 +24,43 @@
         <input type="number" name="price" required class="w-full p-2 border rounded">
       </div>
       <div class="mb-4">
-        <label class="block text-gray-700">Hình ảnh</label>
+        <label class="block text-gray-700">Ảnh chính</label>
         <input type="file" name="image" accept="image/*" required class="w-full p-2 border rounded">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700">Ảnh phụ (tối đa 5 ảnh)</label>
+        <input type="file" name="secondaryImages" accept="image/*" multiple class="w-full p-2 border rounded">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700">Kích thước</label>
+        <div class="flex gap-2">
+          <label><input type="checkbox" name="sizes" value="S"> S</label>
+          <label><input type="checkbox" name="sizes" value="M"> M</label>
+          <label><input type="checkbox" name="sizes" value="L"> L</label>
+          <label><input type="checkbox" name="sizes" value="XL"> XL</label>
+          <label><input type="checkbox" name="sizes" value="XXL"> XXL</label>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700">Mô tả chi tiết</label>
+        <textarea name="richDescription" id="richDescription" class="w-full p-2 border rounded"></textarea>
       </div>
       <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Upload</button>
     </form>
   </div>
+    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        CKEditor.replace('richDescription', {
+          toolbar: [
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
+            { name: 'styles', items: ['Font', 'FontSize'] },
+            { name: 'colors', items: ['TextColor', 'BGColor'] },
+          ]
+        });
+      });
+    </script>
   <script src="/assets/js/admin.js"></script>
 </body>
 </html>
