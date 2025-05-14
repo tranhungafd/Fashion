@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin - Upload Sản Phẩm</title>
-  <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
@@ -33,7 +32,7 @@
       </div>
       <div class="mb-4">
         <label class="block text-gray-700">Kích thước</label>
-        <div class="flex gap-2">
+        <div class="flex gap-2 flex-wrap">
           <label><input type="checkbox" name="sizes" value="S"> S</label>
           <label><input type="checkbox" name="sizes" value="M"> M</label>
           <label><input type="checkbox" name="sizes" value="L"> L</label>
@@ -43,24 +42,75 @@
       </div>
       <div class="mb-4">
         <label class="block text-gray-700">Mô tả chi tiết</label>
-        <textarea name="richDescription" id="richDescription" class="w-full p-2 border rounded"></textarea>
+        <textarea name="richDescription" class="w-full p-2 border rounded"></textarea>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700">Màu sắc</label>
+        <div class="flex gap-2 flex-wrap">
+          <label><input type="checkbox" name="colors" value="trắng"> Trắng</label>
+          <label><input type="checkbox" name="colors" value="đen"> Đen</label>
+          <label><input type="checkbox" name="colors" value="kem"> Kem</label>
+          <label><input type="checkbox" name="colors" value="đỏ"> Đỏ</label>
+          <label><input type="checkbox" name="colors" value="hồng"> Hồng</label>
+          <label><input type="checkbox" name="colors" value="xanh lá"> Xanh lá</label>
+          <label><input type="checkbox" name="colors" value="xanh"> Xanh</label>
+          <label><input type="checkbox" name="colors" value="tím"> Tím</label>
+          <label><input type="checkbox" name="colors" value="vàng"> Vàng</label>
+          <label><input type="checkbox" name="colors" value="PASTEL"> Pastel</label>
+          <label><input type="checkbox" name="colors" value="bạc"> Bạc</label>
+          <label><input type="checkbox" name="colors" value="mint"> Mint</label>
+          <label><input type="checkbox" name="colors" value="cam"> Cam</label>
+          <label><input type="checkbox" name="colors" value="nâu"> Nâu</label>
+          <label><input type="checkbox" name="colors" value="xanh rêu"> Xanh rêu</label>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700">Mặc vào dịp</label>
+        <div class="flex gap-2 flex-wrap">
+          <label><input type="checkbox" name="occasions" value="Dự tiệc cưới"> Dự tiệc cưới</label>
+          <label><input type="checkbox" name="occasions" value="Hội thảo/ Thuyết trình"> Hội thảo/ Thuyết trình</label>
+          <label><input type="checkbox" name="occasions" value="Bar/Pub"> Bar/Pub</label>
+          <label><input type="checkbox" name="occasions" value="Du lịch Biển"> Du lịch Biển</label>
+          <label><input type="checkbox" name="occasions" value="Du lịch lạnh"> Du lịch lạnh</label>
+          <label><input type="checkbox" name="occasions" value="Cafe/Tại nhà"> Cafe/Tại nhà</label>
+          <label><input type="checkbox" name="occasions" value="Đồ cưới"> Đồ cưới</label>
+          <label><input type="checkbox" name="occasions" value="Sự Kiện"> Sự Kiện</label>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700">Phong cách</label>
+        <div class="flex gap-2 flex-wrap">
+          <label><input type="checkbox" name="styles" value="Thanh lịch"> Thanh lịch</label>
+          <label><input type="checkbox" name="styles" value="Sang Trọng"> Sang Trọng</label>
+          <label><input type="checkbox" name="styles" value="Sexy"> Sexy</label>
+          <label><input type="checkbox" name="styles" value="Cá tính"> Cá tính</label>
+          <label><input type="checkbox" name="styles" value="Vintage - Boho"> Vintage - Boho</label>
+          <label><input type="checkbox" name="styles" value="Nàng thơ - Công Chúa"> Nàng thơ - Công Chúa</label>
+          <label><input type="checkbox" name="styles" value="Nhẹ Nhàng"> Nhẹ Nhàng</label>
+          <label><input type="checkbox" name="styles" value="Trẻ trung"> Trẻ trung</label>
+          <label><input type="checkbox" name="styles" value="Kín đáo"> Kín đáo</label>
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700">Loại trang phục</label>
+        <div class="flex gap-2 flex-wrap">
+          <label><input type="checkbox" name="categories" value="Đầm"> Đầm</label>
+          <label><input type="checkbox" name="categories" value="Set Bộ"> Set Bộ</label>
+          <label><input type="checkbox" name="categories" value="Áo dài - Đồ lam"> Áo dài - Đồ lam</label>
+          <label><input type="checkbox" name="categories" value="Kiểu tay áo"> Kiểu tay áo</label>
+          <label><input type="checkbox" name="categories" value="Áo"> Áo</label>
+          <label><input type="checkbox" name="categories" value="Vest"> Vest</label>
+          <label><input type="checkbox" name="categories" value="Quần"> Quần</label>
+          <label><input type="checkbox" name="categories" value="Chân váy"> Chân váy</label>
+          <label><input type="checkbox" name="categories" value="Đồ Liền Thân"> Đồ Liền Thân</label>
+          <label><input type="checkbox" name="categories" value="Ôm Body"> Ôm Body</label>
+          <label><input type="checkbox" name="categories" value="Đồ Lụa"> Đồ Lụa</label>
+          <label><input type="checkbox" name="categories" value="Đồ Lanh"> Đồ Lanh</label>
+        </div>
       </div>
       <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Upload</button>
     </form>
   </div>
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        CKEditor.replace('richDescription', {
-          toolbar: [
-            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike'] },
-            { name: 'paragraph', items: ['NumberedList', 'BulletedList'] },
-            { name: 'styles', items: ['Font', 'FontSize'] },
-            { name: 'colors', items: ['TextColor', 'BGColor'] },
-          ]
-        });
-      });
-    </script>
   <script src="/assets/js/admin.js"></script>
 </body>
 </html>

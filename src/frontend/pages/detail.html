@@ -22,11 +22,19 @@
         <h2 id="product-name" class="text-2xl font-bold"></h2>
         <p id="product-price" class="text-3xl text-red-600 font-semibold mt-2"></p>
         <p id="product-description" class="text-gray-700 mt-4"></p>
-        <div id="product-rich-description" class="mt-4 prose"></div>
+        
         <div class="mt-4">
           <label class="block text-gray-700">Kích thước</label>
           <div id="product-sizes" class="flex gap-2">
             <!-- Kích thước sẽ được thêm bằng JavaScript -->
+          </div>
+        </div>
+        <div class="mt-4">
+          <label class="block text-gray-700">Màu sắc</label>
+          <div class="flex gap-2">
+            <button class="w-6 h-6 bg-yellow-300 rounded-full"></button>
+            <button class="w-6 h-6 bg-blue-500 rounded-full"></button>
+            <button class="w-6 h-6 bg-red-500 rounded-full"></button>
           </div>
         </div>
         <div class="mt-4">
@@ -42,9 +50,12 @@
           <button class="w-full bg-green-500 text-white p-2 rounded mt-2 hover:bg-green-600">Mua Hàng</button>
         </div>
         <p class="mt-4 text-gray-500">Hotline hỗ trợ: (+84)965848123 (Zalo)</p>
+    
       </div>
+      
     </div>
   </div>
+  <p id="product-rich-description" class="text-gray-700 mt-4"></p>
   <script src="/assets/js/detail.js"></script>
 </body>
 </html>

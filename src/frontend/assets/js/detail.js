@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('product-price').textContent = `${product.price || 0}đ`;
     document.getElementById('product-description').textContent = product.description || 'Không có mô tả';
 
+    // Hiển thị mô tả chi tiết (giống mô tả ngắn)
+    document.getElementById('product-rich-description').textContent = product.richDescription || 'Không có mô tả chi tiết';
+
     // Hiển thị ảnh phụ
     const thumbnailList = document.getElementById('thumbnail-list');
     if (product.secondaryImages && product.secondaryImages.length > 0) {
@@ -45,11 +48,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     } else {
       sizesList.innerHTML = '<p>Không có kích thước</p>';
     }
-
-    // Hiển thị mô tả phong phú
-    const richDescription = document.getElementById('product-rich-description');
-    console.log('Rich Description from API:', product.richDescription); // Log để debug
-    richDescription.innerHTML = product.richDescription || '<p>Không có mô tả chi tiết</p>';
 
     // Cập nhật ngày mặc định
     const today = new Date().toISOString().split('T')[0];

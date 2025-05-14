@@ -16,10 +16,10 @@ router.post('/', authenticateToken, upload.fields([
   { name: 'secondaryImages', maxCount: 5 }
 ]), async (req, res) => {
   try {
-    console.log('Request body:', req.body);
+    console.log('Request body (full):', req.body);
     console.log('Files:', req.files);
 
-    const { name, description, price, sizes, richDescription } = req.body;
+    const { name, description, price, sizes, richDescription, colors, occasions, styles, categories } = req.body;
     if (!name || !description || !price) {
       console.log('Missing required fields');
       return res.status(400).json({ error: 'Missing required fields: name, description, price are required' });
@@ -30,27 +30,43 @@ router.post('/', authenticateToken, upload.fields([
       return res.status(400).json({ error: 'Main image is required' });
     }
 
+    // Hàm parse mảng, xử lý chuỗi JSON
+    const parseArray = (value) => {
+      if (typeof value === 'string') {
+        try {
+          const parsed = JSON.parse(value);
+          return Array.isArray(parsed) ? parsed : [parsed];
+        } catch (e) {
+          return value ? [value] : [];
+        }
+      }
+      return value ? (Array.isArray(value) ? value : [value]) : [];
+    };
+
     const product = new Product({
       name,
       description,
-      price,
+      price: parseFloat(price), // Chuyển price thành số
       image: req.files['image'] ? `/uploads/${req.files['image'][0].filename}` : '',
       secondaryImages: req.files['secondaryImages'] ? req.files['secondaryImages'].map(file => `/uploads/${file.filename}`) : [],
-      sizes: sizes ? (Array.isArray(sizes) ? sizes : [sizes]) : [],
-      richDescription: richDescription || '', // Đảm bảo không undefined
+      sizes: parseArray(sizes),
+      richDescription: richDescription || '',
+      colors: parseArray(colors),
+      occasions: parseArray(occasions),
+      styles: parseArray(styles),
+      categories: parseArray(categories),
     });
 
     console.log('Product to save:', product);
     await product.save();
     console.log('Product saved successfully');
-    res.status(201).json({ message: 'Product uploaded successfully' });
+    res.status(201).json({ message: 'Product uploaded successfully', product });
   } catch (error) {
     console.error('Error uploading product:', error.message, error.stack);
     res.status(500).json({ error: 'Error uploading product', details: error.message });
   }
 });
 
-// Các route khác giữ nguyên
 router.get('/', async (req, res) => {
   try {
     console.log('Fetching products...');
