@@ -1,0 +1,21 @@
+databases:
+  - name: mongodb
+    databaseName: test
+    user: tranhungafd
+    password: TAogJBrJSSlaEmPf
+    ipAllowList: ["14.232.208.179/32"]
+
+services:
+  - type: web
+    name: fashion-rental-app
+    env: node
+    buildCommand: npm install
+    startCommand: node src/backend/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        value: mongodb+srv://tranhungafd:TAogJBrJSSlaEmPf@cluster0.cr4owl8.mongodb.net/test?retryWrites=true&w=majority
+      - key: JWT_SECRET
+        value: myfashionrental2025secret
+    autoDeploy: true
